@@ -1,0 +1,17 @@
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from './App.tsx';
+import { AdminApp } from './admin/AdminApp.tsx';
+import './index.css';
+
+createRoot(document.getElementById('root')!).render(
+  <BrowserRouter>
+    <Routes>
+      {/* Admin Panel - completely separate from public site */}
+      <Route path="/admin/*" element={<AdminApp />} />
+
+      {/* Public Website */}
+      <Route path="/*" element={<App />} />
+    </Routes>
+  </BrowserRouter>
+);
